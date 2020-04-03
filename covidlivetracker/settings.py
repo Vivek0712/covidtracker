@@ -28,7 +28,7 @@ SECRET_KEY = ')z(t5c!2(iw$bu04_vc+c41o$d9qg+&v@o8ax30q52cj&5r6r='
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','192.168.0.9','183.83.152.87']
+ALLOWED_HOSTS = ['newcovid.herokuapp.com','localhost', '127.0.0.1','192.168.0.9','183.83.152.87']
 
 
 # Application definition
