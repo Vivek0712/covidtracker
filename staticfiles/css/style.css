@@ -1,0 +1,149 @@
+td,
+th {
+	text-align: left;
+	padding: .5rem 1rem;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #ccc;
+}
+
+th {
+	background: #444;
+	color: #fff;
+}
+
+/* Pagination. */
+.pagination {
+	background: #333;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+#numbers {
+	padding: 0;
+	margin: 0 2rem;
+	list-style-type: none;
+	display: flex;
+}
+
+#numbers li a {
+	color: #fff;
+	padding: .5rem 1rem;
+	text-decoration: none;
+	opacity: .7;
+}
+
+#numbers li a:hover {
+	opacity: 1;
+}
+
+#numbers li a.active {
+	opacity: 1;
+	background: #fff;
+	color: #333;
+}
+
+.deltainc{
+    font-size: small;
+    color: red;
+    display: inline
+    
+}
+
+.deltadec{
+    font-size: small;
+    color: darkgreen;
+    display: inline
+    
+}
+
+.state {
+    fill: none;
+    stroke: #a9a9a9;
+    stroke-width: 1;
+}
+
+.state:hover {
+    fill-opacity: 0.5;
+}
+
+#tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 1px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+#tooltip h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+#tooltip {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 12px;
+    width: auto;
+    padding: 4px;
+    color: white;
+    opacity: 0;
+}
+
+#tooltip table {
+    table-layout: fixed;
+}
+
+#tooltip tr td {
+    padding: 0;
+    margin: 0;
+}
+
+#tooltip tr td:nth-child(1) {
+    width: 50px;
+}
+
+#tooltip tr td:nth-child(2) {
+    text-align: center;
+}
+
+#chartdiv {
+    max-width: 100%;
+    height: 800px;
+    background-color:#212327;
+  }
+  
+      .deltainc{
+      font-size: small;
+      color: red;
+      display: inline
+      
+  }
+
+  .deltadec{
+    font-size: small;
+    color: darkgreen;
+    display: inline
+    
+}
+
+#container {
+    height: 500px; 
+    min-width: 310px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
