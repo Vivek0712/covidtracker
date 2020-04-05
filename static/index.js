@@ -97,7 +97,7 @@ statewiseinfo = {}
           
          
 
-              if(response.statewise[state].delta.recovered > 0 ){
+              if(response.statewise[state].deltarecovered > 0 ){
                  datastring += "<td>"+response.statewise[state].recovered+"<div class='deltadec'>["+response.statewise[state].deltarecovered+"]</div></td>";
               }
               
@@ -109,7 +109,7 @@ statewiseinfo = {}
          
            
 
-              if(response.statewise[state].delta.deaths > 0 ){
+              if(response.statewise[state].deltadeaths > 0 ){
                  datastring += "<td>"+response.statewise[state].deaths+"<div class='deltainc'>["+response.statewise[state].deltadeaths+"]</div></td>";
                  
               }
@@ -122,13 +122,9 @@ statewiseinfo = {}
 
            
 
-            if(response.statewise[state].delta.lastupdatedtime !=null ) {
+            
               datastring +="<td>"+response.statewise[state].lastupdatedtime+"</td></tr>";
-            }
-            else {
-              datastring +="<td>-</td>"
-            }
-
+           
 
       }
       
