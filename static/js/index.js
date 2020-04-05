@@ -63,33 +63,30 @@ statewiseinfo = {}
 			  
 			  statewiseinfo[response.statewise[state].state] = stateinfo;
         
-          if( response.statewise[state].delta.active !=  null) {
-                if(response.statewise[state].delta.active > 0 ){
-                   datastring += "<td>"+response.statewise[state].active+"<div class='deltainc'>["+response.statewise[state].delta.active+"]</div></td>";
+          
+                // if(response.statewise[state].delta.active > 0 ){
+                //    datastring += "<td>"+response.statewise[state].active+"<div class='deltainc'>["+response.statewise[state].delta.active+"]</div></td>";
                    
-                }
-                else if(response.statewise[state].delta.active < 0 ){
-                   datastring += "<td>"+response.statewise[state].active+"<div class='deltadec'>["+response.statewise[state].delta.active+"]</div></td>";
+                // }
+                // else if(response.statewise[state].delta.active < 0 ){
+                //    datastring += "<td>"+response.statewise[state].active+"<div class='deltadec'>["+response.statewise[state].delta.active+"]</div></td>";
                    
-                }
-                else{
+                // }
+                // else{
                     datastring +="<td>"+response.statewise[state].active+"</td>";
                     
-                }
-              } 
-                else {
-                  datastring +="<td>-</td>"
-                }
+                // }
+            
 
          
          
-          if( response.statewise[state].delta.confirmed !=  null) {
-                if(response.statewise[state].delta.confirmed > 0 ){
-                   datastring += "<td>"+response.statewise[state].confirmed+"<div class='deltainc'>["+response.statewise[state].delta.confirmed+"]</div></td>";
+          
+                if(response.statewise[state].deltaconfirmed > 0 ){
+                   datastring += "<td>"+response.statewise[state].confirmed+"<div class='deltainc'>["+response.statewise[state].deltaconfirmed+"]</div></td>";
                   
                 }
-                else if(response.statewise[state].delta.confirmed < 0 ){
-                   datastring += "<td>"+response.statewise[state].confirmed+"<div class='deltadec'>["+response.statewise[state].delta.confirmed+"]</div></td>";
+                else if(response.statewise[state].deltaconfirmed < 0 ){
+                   datastring += "<td>"+response.statewise[state].confirmed+"<div class='deltadec'>["+response.statewise[state].deltaconfirmed+"]</div></td>";
                    
                 }
                 else{
@@ -97,28 +94,23 @@ statewiseinfo = {}
                    
                 }
 
-              }
-              else {
-                datastring +="<td>-</td>"
-              }
-              if(response.statewise[state].delta.recovered !=null ) {
+            
+           
 
                 if(response.statewise[state].delta.recovered > 0 ){
-                   datastring += "<td>"+response.statewise[state].recovered+"<div class='deltadec'>["+response.statewise[state].delta.recovered+"]</div></td>";
+                   datastring += "<td>"+response.statewise[state].recovered+"<div class='deltadec'>["+response.statewise[state].deltarecovered+"]</div></td>";
                 }
                 
                 else{
                     datastring +="<td>"+response.statewise[state].recovered+"</td>";
                     
                 }
-              }
-              else {
-                datastring +="<td>-</td>"
-              }
-              if(response.statewise[state].delta.deaths !=null ) {
+              
+           
+             
 
                 if(response.statewise[state].delta.deaths > 0 ){
-                   datastring += "<td>"+response.statewise[state].deaths+"<div class='deltainc'>["+response.statewise[state].delta.deaths+"]</div></td>";
+                   datastring += "<td>"+response.statewise[state].deaths+"<div class='deltainc'>["+response.statewise[state].deltadeaths+"]</div></td>";
                    
                 }
                 
@@ -128,11 +120,7 @@ statewiseinfo = {}
 
                 }
 
-              }
-               
-              else {
-                datastring +="<td>-</td>"
-              }
+             
 
               if(response.statewise[state].delta.lastupdatedtime !=null ) {
                 datastring +="<td>"+response.statewise[state].lastupdatedtime+"</td></tr>";
