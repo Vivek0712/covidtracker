@@ -76,6 +76,7 @@ var statecode = {"Andhra Pradesh":"IN-AP",
 var arr =[];
 statewiseinfo = {}
  datastring = "";
+ var tc,tr,td,ta;
     var response = $.ajax({
   url: "https://api.covid19india.org/data.json",
   method: "get",
@@ -83,6 +84,11 @@ statewiseinfo = {}
   success:function(response){
 
     console.log("inside");
+    $("#tc").text(response.cases_time_series[response.cases_time_series.length -1].totalconfirmed);
+    $("#tr").text(response.cases_time_series[response.cases_time_series.length -1].totalrecovered);
+    $("#td").text(response.cases_time_series[response.cases_time_series.length -1].totaldeceased);
+    $("#ta").text(parseInt($("#tc").text()) - (parseInt($("#tr").text())+parseInt($("#td").text())));
+    console.log(tc);
    
     for (var state in response.statewise){
        
@@ -111,6 +117,23 @@ statewiseinfo = {}
                    
                 // }
                 // else{
+
+
+
+                
+                    if(response.statewise[state].deltaconfirmed > 0 ){
+                        datastring += "<td>"+response.statewise[state].confirmed+"<div class='deltainc'>["+response.statewise[state].deltaconfirmed+"]</div></td>";
+                       
+                     }
+                     else if(response.statewise[state].deltaconfirmed < 0 ){
+                        datastring += "<td>"+response.statewise[state].confirmed+"<div class='deltadec'>["+response.statewise[state].deltaconfirmed+"]</div></td>";
+                        
+                     }
+                     else{
+                         datastring +="<td>"+response.statewise[state].confirmed+"</td>";
+                        
+                     }
+       
                     datastring +="<td>"+response.statewise[state].active+"</td>";
                     
                 // }
@@ -119,19 +142,6 @@ statewiseinfo = {}
          
          
           
-                if(response.statewise[state].deltaconfirmed > 0 ){
-                   datastring += "<td>"+response.statewise[state].confirmed+"<div class='deltainc'>["+response.statewise[state].deltaconfirmed+"]</div></td>";
-                  
-                }
-                else if(response.statewise[state].deltaconfirmed < 0 ){
-                   datastring += "<td>"+response.statewise[state].confirmed+"<div class='deltadec'>["+response.statewise[state].deltaconfirmed+"]</div></td>";
-                   
-                }
-                else{
-                    datastring +="<td>"+response.statewise[state].confirmed+"</td>";
-                   
-                }
-  
             
            
   
@@ -161,7 +171,7 @@ statewiseinfo = {}
              
   
               
-                datastring +="<td>"+response.statewise[state].lastupdatedtime+"</td></tr>";
+                
              
   
         }

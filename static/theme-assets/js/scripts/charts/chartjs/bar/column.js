@@ -12,6 +12,71 @@
 // ------------------------------
 $(window).on("load", function(){
 
+    function convertdateformat(oldDate){
+        var old = oldDate.split(" ");
+        var monthmap = {
+            "January" : "01",
+            "February" : "02",
+            "March" : "03",
+            "April" : "04",
+            "May" : "05",
+            "June" :  "06",
+            "July" : "07",
+            "August" : "08",
+            "September" : "09",
+            "October" : "10",
+            "November" : "11",
+            "December" : "12"
+        };
+       
+        return "2020-"+monthmap[old[1]]+"-"+old[0]+"";
+    }
+    
+    var listDate = [];
+    var totalconfirmed = [];
+    var totaldeceased = [];
+    var totalrecovered = [];
+    var dailyconfirmed = [];
+    var dailydeceased = [];
+    var dailyrecovered = [];
+    function gendates(strDate,endDate){
+        var dateMove = new Date(strDate);
+    while (strDate < endDate){
+      var strDate = dateMove.toISOString().slice(0,10);
+       listDate.push(strDate);
+      dateMove.setDate(dateMove.getDate()+1);
+    };
+    }
+
+
+    var res = $.ajax({
+        url: "https://api.covid19india.org/data.json",
+        method: "get",
+        dataType:'json',
+        success:function(res){
+        
+            // console.log(res.cases_time_series);
+            
+            var days = res.cases_time_series.length;
+            // var startDate = convertdateformat(res.cases_time_series[0].date);
+            // var endDate = convertdateformat(res.cases_time_series[days-1].date);
+            gendates('2020-03-25','2020-04-04');
+            
+            for (i = 0; i < days; i++) {
+                totalconfirmed.push(res.cases_time_series[i].totalconfirmed);
+                totaldeceased.push(res.cases_time_series[i].totaldeceased);
+                totalrecovered.push(res.cases_time_series[i].totalrecovered);
+                dailyconfirmed.push(res.cases_time_series[i].dailyconfirmed);
+                dailydeceased.push(res.cases_time_series[i].dailydeceased);
+                dailyrecovered.push(res.cases_time_series[i].dailyrecovered);
+          
+            }
+        
+        
+            var chart_labels = listDate;
+            var forecast_chart;
+            console.log(chart_labels);
+
     //Get the context of the Chart canvas element we want to select
     var ctx = $("#column-chart");
 
@@ -56,26 +121,40 @@ $(window).on("load", function(){
         },
         title: {
             display: true,
-            text: 'Chart.js Bar Chart'
+            text: 'India - Daily Cases'
         }
     };
 
     // Chart Data
     var chartData = {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        datasets: [{
-            label: "2017",
-            data: [65, 85, 40, 81, 56, 75],
-            backgroundColor: "#28D094",
-            hoverBackgroundColor: "rgba(40,208,148,.9)",
-            borderColor: "transparent"
-        }, {
-            label: "2018",
-            data: [45, 65, 65, 19, 86, 35],
-            backgroundColor: "#FF4961",
-            hoverBackgroundColor: "rgba(255,73,97,.9)",
-            borderColor: "transparent"
-        }]
+        labels: listDate,
+        data: {
+            labels: chart_labels,
+            datasets: [{
+                
+                label: "Confirmed Cases",
+                fill: false,
+              borderColor: "red",
+              backgroundColor :'red',
+                data:  dailyconfirmed,
+            }, {
+               
+                label: "Recovered Cases",
+                borderColor: "green",
+                fillColor: "green",
+                fill: false,
+                backgroundColor :'green',
+                data: dailyrecovered,
+            },
+            {
+                
+                label: "Deceased Cases",
+                borderColor: "darkgrey",
+                fill: false,
+                backgroundColor :'grey',
+                data: dailydeceased,
+            }]
+        },
     };
 
     var config = {
@@ -89,4 +168,10 @@ $(window).on("load", function(){
 
     // Create the chart
     var lineChart = new Chart(ctx, config);
+
+},
+error: function(XMLHttpRequest, textStatus, errorThrown) { 
+    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+}
+});
 });

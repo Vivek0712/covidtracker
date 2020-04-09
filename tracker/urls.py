@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.HomePageView.as_view()),
-    url(r'^state/$', views.AboutPageView.as_view()),
+    url(r'^infographics', views.InfoPageView.as_view())
 ]

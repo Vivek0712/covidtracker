@@ -4,16 +4,17 @@
 <html class="loading" lang="en" data-textdirection="ltr">
 
 <head>
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-  <meta name="description"
-    content="COVID-19 Live Tracker & Prediction for World and India.">
-  <meta name="keywords"
-    content="View World, India - State District wise covid-19 cases updated live">
+  <meta name="description" content="COVID-19 Live Tracker & Prediction for World and India.">
+  <meta name="keywords" content="View World, India - State District wise covid-19 cases updated live">
   <meta name="author" content="Prediction & Live Tracking">
   <title>COVID-19 World and India Live Tracker &amp; Forecast</title>
   <link rel="apple-touch-icon" href='{% static "theme-assets/images/ico/favicon.jpg" %}'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
   <link rel="shortcut icon" type="image/x-icon" href='{% static "theme-assets/images/ico/favicon.jpg" %}'>
 
@@ -43,10 +44,8 @@
 
 
   <script type="text/css" src=" {% static 'css/style.css'  %}"></script>
- 
+
   <!-- Chart code -->
-
-
 
 
 
@@ -55,8 +54,8 @@
 
 </head>
 
-<body class="vertical-layout    menu-expanded fixed-navbar" data-open="click"
-  data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
+<body class="vertical-layout    menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu"
+  data-color="bg-chartbg" data-col="2-columns">
 
   <!-- fixed-top-->
   <nav
@@ -69,11 +68,33 @@
               style="color: white;">(World & India)</small></h1>
           </td>
         </div>
+        <ul class="nav navbar-nav float-right"> 
+         
+          <div class="fonticon-wrap icon-shadow icon-shadow-primary"  data-toggle="modal" data-target="#exampleModal" ><i class="la la-user"></i></div>
+        </ul>
       </div>
     </div>
   </nav>
   <!-- ////////////////////////////////////////////////////////////////////////////-->
-
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Developed By Vivek Raja P S</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Feel Free me to contact me over
+          <div class="row"></div>
+          <a href="https://linkedin.com/in/vivek0712" target="_blank"><button type="button" class="btn btn-icon btn-info mr-1 btn-li">LinkedIn</button></a>
+          <a href="mailto:covidlivetracker@gmail.com?Subject=CovidLiveTracker" target="_blank"><button type="button" class="btn btn-icon btn-warning mr-1 btn-li">Email</button></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 
 
@@ -101,25 +122,25 @@
           
       </div> -->
 
-      <style>
-        #chartdiv {
-          max-width: 100%;
-          height: 800px;
-          background-color:#212327;
-        }
-        </style>
-        
-        <!-- Resources -->
-        <script src="https://www.amcharts.com/lib/4/core.js"></script>
-        <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-        <script src="https://www.amcharts.com/lib/4/maps.js"></script>
-        <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
-        <script src="https://covid.amCharts.com/data/js/world_timeline.js"></script>
-        <script src="https://covid.amCharts.com/data/js/total_timeline.js"></script>
-        <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+  <style>
+    #chartdiv {
+      max-width: 100%;
+      height: 800px;
+      background-color: #212327;
+    }
+  </style>
 
-        
-        <script type="text/javascript" src=" {% static 'js/worldmap.js'  %}"></script>
+  <!-- Resources -->
+  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+  <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+  <script src="https://covid.amCharts.com/data/js/world_timeline.js"></script>
+  <script src="https://covid.amCharts.com/data/js/total_timeline.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+
+  <script type="text/javascript" src=" {% static 'js/worldmap.js'  %}"></script>
 
 
   <div class="app-content content">
@@ -165,201 +186,255 @@
 
                 <link rel="stylesheet" type="text/css" href='{% static "result-light.css" %}'> -->
 
+              
 
 
-
-
-
-              <div class="row">
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4 class="card-title statename"></h4>
-
-                    </div>
-                    <div class="card-content collapse show">
-                      <h1>
-                        <div class="card-body">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title"></h4>
 
                         </div>
-                      </h1>
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead class="thead-dark">
-                            <tr>
+                        <div class="card-content collapse show">
+                          <h1>
+                            <div class="card-body">
 
-                              <th class="statename" scope="col"></th>
-                              <th scope="col">Active Cases</th>
-                              <th scope="col">Confirmed Cases</th>
-                              <th scope="col">Recovered Cases</th>
-                              <th scope="col">Deaths Cases</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td scope="row">
-                                <h1 class="info">Total</h1>
-                                </th>
-                              <td>
-                                <h1 id="active" class="danger"> </h1>
-                              </td>
-                              <td>
-                                <h1 id="confirmed" class="warning"></h1>
-                              </td>
-                              <td>
-                                <h1 id="recovered" class="success"></h1>
-                              </td>
-                              <td>
-                                <h1 id="deaths"></h1>
-                              </td>
-                            </tr>
+                            </div>
+                          </h1>
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+    
+                                  <th  scope="col">India</th>
+                                  <th scope="col">Confirmed Cases</th>
+                                  <th scope="col">Active Cases</th>
+                                  <th scope="col">Recovered Cases</th>
+                                  <th scope="col">Deaths Cases</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td scope="row">
+                                    <h1 class="info">Total</h1>
+                                    </th>
+                                  <td>
+                                    <h1 id="tc" class="danger"> </h1>
+                                  </td>
+                                  <td>
+                                    <h1 id="ta" class="warning"></h1>
+                                  </td>
+                                  <td>
+                                    <h1 id="tr" class="success"></h1>
+                                  </td>
+                                  <td>
+                                    <h1 id="td"></h1>
+                                  </td>
+                                </tr>
+    
+                              </tbody>
+                              <thead class="thead-dark">
+                                <tr>
 
-                          </tbody>
-                        </table>
+                                  <th class="statename" scope="col"></th>
+                                  <th scope="col">Confirmed Cases</th>
+                                  <th scope="col">Active Cases</th>
+                                  
+                                  <th scope="col">Recovered Cases</th>
+                                  <th scope="col">Deaths Cases</th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <tr>
+                                  <td scope="row">
+                                    <h1 class="info">Total</h1>
+                                    </th>
+                                  <td>
+                                    <h1 id="active" class="danger"> </h1>
+                                  </td>
+                                  <td>
+                                    <h1 id="confirmed" class="warning"></h1>
+                                  </td>
+                                  <td>
+                                    <h1 id="recovered" class="success"></h1>
+                                  </td>
+                                  <td>
+                                    <h1 id="deaths"></h1>
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                              
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <style type="text/css">
+                    #container {
+                      height: 500px;
+                      min-width: 310px;
+                      max-width: 800px;
+                      margin: 0 auto;
+                    }
+
+                    .loading {
+                      margin-top: 10em;
+                      text-align: center;
+                      color: gray;
+                    }
+                  </style>
+
+                  <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+                  <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+                  <script src="https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.js"></script>
+
+                  <script src="https://code.highcharts.com/mapdata/countries/in/in-all.js"></script>
+
+                  <div id="container"></div>
+
+
+
+                  <script type="text/javascript" src=" {% static 'js/index.js'  %}"></script>
+                  <!-- TODO: Missing CoffeeScript 2 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="col-xl-4 col-lg-6 col-md-12">
+                    <div class="card pull-up ecom-card-1 bg-white">
+                      <div class="card-content ecom-card2 height-40">
+                        <h5 id="active" class="text-muted danger position-absolute p-1"></h5>
+
+
+
+                      </div>
+                      <div class="card-content ecom-card2 height-40">
+                        <h5 id="confirmed" class="text-muted warning position-absolute p-1"></h5>
+                      </div>
+                      <div class="card-content ecom-card2 height-40">
+                        <h5 id="recovered" class="text-muted success position-absolute p-1"></h5>
+                      </div>
+                      <div class="card-content ecom-card2 height-40">
+                        <h5 id="deaths" class="text-muted info position-absolute p-1"></h5>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+                <div class="card-body col-lg-4 col-md-12">
+                  <div class="tabledata" class="row">
+                    <div class="col-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title ">District Wise</h4>
+
+                        </div>
+                        <div class="card-content collapse show">
+                          <h1>
+                            <div class="card-body">
+
+                            </div>
+                          </h1>
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+
+                                  <th scope="col">District Name</th>
+                                  <th scope="col">Confirmed Cases</th>
+
+                                </tr>
+                              </thead>
+                              <tbody id="districtfill">
+                                <tr>
+                                  <td scope="row">
+                                    <h1 class="info"></h1>
+                                  </td>
+                                  <td>
+                                    <h1 class="danger"> </h1>
+                                  </td>
+
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <style type="text/css">
-              
-              #container {
-    height: 500px; 
-    min-width: 310px; 
-    max-width: 800px; 
-    margin: 0 auto; 
-}
-.loading {
-    margin-top: 10em;
-    text-align: center;
-    color: gray;
-}
-
-              
-              </style>
-
-              <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-              <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-              <script src="https://code.highcharts.com/mapdata/countries/in/custom/in-all-disputed.js"></script>
-   
-<script src="https://code.highcharts.com/mapdata/countries/in/in-all.js"></script>
-
-<div id="container"></div>
-
-
-              
-              <script type="text/javascript" src=" {% static 'js/index.js'  %}"></script>
-              <!-- TODO: Missing CoffeeScript 2 -->
-
-            
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-              <div class="col-xl-4 col-lg-6 col-md-12">
-                <div class="card pull-up ecom-card-1 bg-white">
-                  <div class="card-content ecom-card2 height-40">
-                    <h5 id="active" class="text-muted danger position-absolute p-1"></h5>
-
-
-
-                  </div>
-                  <div class="card-content ecom-card2 height-40">
-                    <h5 id="confirmed" class="text-muted warning position-absolute p-1"></h5>
-                  </div>
-                  <div class="card-content ecom-card2 height-40">
-                    <h5 id="recovered" class="text-muted success position-absolute p-1"></h5>
-                  </div>
-                  <div class="card-content ecom-card2 height-40">
-                    <h5 id="deaths" class="text-muted info position-absolute p-1"></h5>
-                  </div>
-                </div>
-              </div>
-
-
-
-
-            </div>
-            <div class="card-body col-lg-4 col-md-12">
-              <div class="tabledata" class="row">
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <h4 class="card-title ">District Wise</h4>
-
-                    </div>
-                    <div class="card-content collapse show">
-                      <h1>
-                        <div class="card-body">
-
-                        </div>
-                      </h1>
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead class="thead-dark">
-                            <tr>
-
-                              <th scope="col">District Name</th>
-                              <th scope="col">Confirmed Cases</th>
-
-                            </tr>
-                          </thead>
-                          <tbody id="districtfill">
-                            <tr>
-                              <td scope="row">
-                                <h1 class="info"></h1>
-                              </td>
-                              <td>
-                                <h1 class="danger"> </h1>
-                              </td>
-
-                            </tr>
-
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
-
-
-
-
-
           </div>
+        </div>
+  </section>
+
+  <style type="text/css">
+    .deltainc {
+      font-size: small;
+      color: red;
+      display: inline
+    }
+
+    .deltadec {
+      font-size: small;
+      color: darkgreen;
+      display: inline
+    }
+  </style>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Trends & Forecast</h4>
+
+      </div>
+      <div class="card-content collapse show">
+        <div class="card-body">
+        
+  <figure class="highcharts-figure">
+    <div id="chartconfirmed"></div>
+</figure>
+<figure class="highcharts-figure">
+  <div id="chartrecovered"></div>
+</figure>
+
+
+<script type="text/css" src=" {% static 'css/datagraph.css'  %}"></script>
+<script type="text/javascript" src=" {% static 'js/datagraph.js'  %}"></script>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-<style type="text/css">
-.deltainc{
-    font-size: small;
-    color: red;
-    display: inline
-    
-}
 
-.deltadec{
-    font-size: small;
-    color: darkgreen;
-    display: inline
-    
-}
-
-</style>
 
 
   <div class="row">
@@ -376,11 +451,11 @@
                 <thead>
                   <tr>
                     <th>State</th>
-                    <th>Total Active</th>
                     <th>Total Confirmed</th>
+                    <th>Total Active</th>
                     <th>Total Recovered</th>
                     <th>Total Deceased</th>
-                    <th>Total Recovered</th>
+                   
                   </tr>
                 </thead>
                 <tbody id="tablecontent">
@@ -429,7 +504,6 @@
   <!-- BEGIN PAGE LEVEL JS-->
   <script src='{% static  "theme-assets/js/scripts/pages/dashboard-lite.js" %}' type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
-
 
 
 
