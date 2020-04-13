@@ -1,5 +1,5 @@
 
-var forecast = {"confirmed": [7345, 7698, 8034, 8351, 8648, 8923, 9174, 9402], "recovered": [694, 759, 827, 898, 973, 1051, 1132, 1215]}
+var forecast = {"confirmed": [9689, 9842, 9971, 10080, 10168, 10237, 10290, 10326], "recovered": [1106, 1194, 1284, 1377, 1472, 1570, 1670, 1772]};
 function convertdate(olddate) {
     monthmap = {"January" :1, "February" :2, "March":3,"April" : 4, "May" : 5, "June":6, "July":7,"August":8,"September":9,"October":10,"November":11,"December":12};
         dates = olddate.split(" ");
@@ -64,7 +64,7 @@ console.log(listDate);
 Highcharts.chart('chartconfirmed', {
 
     title: {
-        text: 'Total Confirmed Cases (31 Jan to '+today.toUTCString().split(',').slice(1,3)+') + Forecast'
+        text: 'Total Confirmed Cases (30 Jan to '+today.toUTCString().split(',').slice(1,3)+') + Forecast'
     },
 
    
@@ -99,7 +99,7 @@ Highcharts.chart('chartconfirmed', {
         name : 'Total Confirmed Cases',
         type: 'areaspline',
         data: totalconfirmed,
-        pointStart: Date.UTC(2020,00,31),
+        pointStart: Date.UTC(2020,00,30),
         pointIntervalUnit: 'day',
         zoneAxis: 'x',
         zones: [{
@@ -142,7 +142,7 @@ Highcharts.chart('chartconfirmed', {
 Highcharts.chart('chartrecovered', {
 
     title: {
-        text: 'Total Recovered Cases (31 Jan to '+today.toUTCString().split(',').slice(1,3)+') + Forecast'
+        text: 'Total Recovered Cases (30 Jan to '+today.toUTCString().split(',').slice(1,3)+') + Forecast'
     },
 
    
