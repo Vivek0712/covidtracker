@@ -86,7 +86,7 @@ statewiseinfo = {}
     console.log("inside");
     $("#tc").text(response.cases_time_series[response.cases_time_series.length -1].totalconfirmed);
     $("#tr").text(response.cases_time_series[response.cases_time_series.length -1].totalrecovered);
-    $("#td").text(response.cases_time_series[response.cases_time_series.length -1].totaldeceased);
+    
     $("#ta").text(parseInt($("#tc").text()) - (parseInt($("#tr").text())+parseInt($("#td").text())));
     console.log(tc);
    
@@ -157,17 +157,7 @@ statewiseinfo = {}
            
              
   
-                if(response.statewise[state].deltadeaths > 0 ){
-                   datastring += "<td>"+response.statewise[state].deaths+"<div class='deltainc'>["+response.statewise[state].deltadeaths+"]</div></td>";
-                   
-                }
-                
-                else{
-                    datastring +="<td>"+response.statewise[state].deaths+"</td>";
-                   
-  
-                }
-  
+             
              
   
               
